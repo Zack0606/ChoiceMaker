@@ -4,7 +4,7 @@
     data-disabled="{{ stepper <= min }}"
     bindtap="handleZanStepperMinus"
   >
-    -
+    ◀
   </view>
   <input
     class="zan-stepper__text {{ min >= max ? 'zan-stepper--disabled' : '' }}"
@@ -18,6 +18,6 @@
     data-disabled="{{ stepper >= max }}"
     bindtap="handleZanStepperPlus"
   >
-    +
+    ▶
   </view>
 </view>
