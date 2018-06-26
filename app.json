@@ -1,12 +1,32 @@
 {
-  "pages":[
+  "pages": [
+    "pages/login/login",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/more/more"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#118fff",
     "navigationBarTitleText": "ChoiceMaker",
-    "navigationBarTextStyle":"#fff"
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#9BABBA",
+    "selectedColor": "#118FFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/icon/home.png",
+        "selectedIconPath": "static/images/icon/home-on.png"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "首页",
+        "iconPath": "static/images/icon/home.png",
+        "selectedIconPath": "static/images/icon/home-on.png"
+      }
+    ]
   }
 }

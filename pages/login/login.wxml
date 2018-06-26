@@ -1,0 +1,17 @@
+<!--start.wxml-->
+<view class="container">
+    <!-- <image class="title" src="/static/images/more/title.png"></image> -->
+    <view class="content">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+         <image class="logo" src="{{userInfo.avatarUrl}}"></image> 
+        <image class="wave" src="/static/images/more/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/static/images/more/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+        <view class="confirm-btn" bindtap='goToIndex'>
+          <text >立即体验</text>
+        </view>
+        <text class="copyright">© 2018 上海大学鲤鱼团队 倾情出品</text>
+      </view>
+    </view>
+</view>
