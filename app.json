@@ -8,6 +8,7 @@
     "pages/addGroup/addGroup",
     "pages/select/select",
     "pages/makeChoice/index"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

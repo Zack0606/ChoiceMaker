@@ -1,2 +1,37 @@
-<!--pages/makeGroup/makeGroup.wxml-->
-<text>pages/makeGroup/makeGroup.wxml</text>
+<!--pages/index/makeOrder/makeOrder.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <doc-page without-padding>
+    <zan-panel>
+      <zan-col col="24" col-class="roomInfo-zan-col">
+        <zan-field name="randomNum" placeholder="{{ config.theme.placeholder }}">
+        </zan-field>
+      </zan-col>
+    </zan-panel>
+
+    <zan-panel title='面对面分组'>
+      <zan-cell-group>
+        <zan-field name="theme" title="{{ config.name.title }}" placeholder="{{ config.name.placeholder }}">
+        </zan-field>
+        <view class="field-container">
+          <zan-field name="peopleNum" title="{{ config.peopleNum.title }}" input-type="number" disabled="true" value="{{ config.peopleNum.stepper }}">
+          </zan-field>
+          <zan-stepper stepper="{{ config.peopleNum.stepper }}" min="{{ config.peopleNum.min }}" max="{{ config.peopleNum.max }}" hidden="true" data-component-id="config.peopleNum" bind:change="handleZanStepperChange"></zan-stepper>
+        </view>
+        <view class="field-container">
+          <zan-field name="groupNum" title="{{ config.groupNum.title }}" input-type="number" disabled="true" value="{{ config.groupNum.stepper }}">
+          </zan-field>
+          <zan-stepper stepper="{{ config.groupNum.stepper }}" min="{{ config.groupNum.min }}" max="{{ config.groupNum.max }}" hidden="true" data-component-id="config.groupNum" bind:change="handleZanStepperChange"></zan-stepper>
+        </view>
+      </zan-cell-group>
+    </zan-panel>
+
+
+
+    <view class="footer-tips">
+      <zan-tag type="primary" plain disabled>分组规则</zan-tag>
+      <text>订单确定后不可取消/变更，如未入住，酒店将扣除全额房费；房间将整晚保留，请及时入住。</text>
+    </view>
+  </doc-page>
+
+  <button form-type="submit">提交订单</button>
+</form>
