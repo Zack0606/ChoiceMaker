@@ -1,0 +1,7 @@
+<!--pages/makeChoice/index.wxml-->
+<view>
+  <input ></input>
+
+  <button>开始</button>
+</view>
+<my-button></my-button>

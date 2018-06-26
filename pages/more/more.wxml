@@ -1,2 +1,6 @@
 <!--pages/more/more.wxml-->
-<text>pages/more/more.wxml</text>
+<!-- <select>
+  <view>test</view>
+</select> -->
+<doc-page>
+</doc-page>

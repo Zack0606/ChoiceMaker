@@ -1,13 +1,36 @@
 //index.js
-//获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    columns: [{
+      id: 0,
+      title: "来抓阄",
+      img: ""
+    }, {
+      id: 1,
+      title: "做选择",
+      img: ""
+    }, {
+      id: 2,
+      title: "来分组",
+      img: ""
+    }, {
+      id: 3,
+      title: "排顺序",
+      img: ""
+    }, {
+      id: 4,
+      title: "分任务",
+      img: ""
+    }, {
+      id: 5,
+      title: "来签到",
+      img: ""
+    }]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -15,13 +38,13 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function() {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -50,5 +73,17 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  getStart: function(e) {
+    console.log(e.currentTarget.id)
+    if (e.currentTarget.id == 1) {
+      wx.navigateTo({
+        url: '../makeChoice/index',
+      })
+    } else {
+      wx.navigateTo({
+        url: '../select/select?columnId=' + e.currentTarget.id,
+      })
+    }
   }
 })

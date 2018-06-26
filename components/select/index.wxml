@@ -1,0 +1,5 @@
+<view class="container">
+  <button bindtap="{{bindPage1}}">我要发起</button>
+  <slot></slot>
+  <button bindtap="{{bindPage2}}">我要加入</button>
+</view>

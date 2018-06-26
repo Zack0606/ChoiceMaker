@@ -1,0 +1,7 @@
+<!--pages/select/select.wxml-->
+
+<view>
+  <button>我要发起</button>  
+  <button>我要加入</button>
+  <button bindtap='goBack'>返回首页</button>
+</view>

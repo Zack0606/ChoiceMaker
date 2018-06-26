@@ -1,13 +1,15 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+<zan-panel>
+  <zan-row>
+    <zan-col col='10' offset='9'>
+      <view class="title">选择决定器</view>
+    </zan-col>
+  </zan-row>
+  <zan-row>
+    <view wx:for="{{columns}}">
+      <zan-col col="12">
+        <button class="column-btn" bindtap="getStart" id="{{item.id}}">{{item.title}}</button>
+      </zan-col>
+    </view>
+  </zan-row>
+</zan-panel>

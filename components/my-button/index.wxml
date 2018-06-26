@@ -1,0 +1,8 @@
+<!--components/my-button/index.wxml-->
+<view>
+  <text>mybutton</text>
+  <image class="cir" src="./images/circle.png"></image>
+  <image class="No" src="./images/{{No}}.png"></image>
+  <image class="btn" src="./images/button.png"></image>
+  <slot></slot>
+</view>
