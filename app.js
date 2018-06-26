@@ -1,4 +1,7 @@
 //app.js
+const Bmob = require('utils/bmob.js');
+Bmob.initialize("43edf782e0c9f04b3118c17b2c3f9ebe", "7f0b49f19a58d885bb248c3c64ac9fa6");
+
 App({
   onLaunch: function () {
     // 展示本地存储能力

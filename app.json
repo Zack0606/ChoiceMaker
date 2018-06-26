@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/more/more"
+    "pages/more/more",
+    "pages/makeGroup/makeGroup",
+    "pages/addGroup/addGroup"
   ],
   "window": {
     "backgroundTextStyle": "light",
