@@ -3,12 +3,12 @@
     "pages/index/index",
     "pages/login/login",
     "pages/logs/logs",
-    "pages/more/more",
     "pages/makeGroup/makeGroup",
     "pages/addGroup/addGroup",
     "pages/select/select",
-    "pages/makeChoice/index"
-
+    "pages/makeChoice/index",
+    "pages/drawLots/index",
+    "pages/newLots/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

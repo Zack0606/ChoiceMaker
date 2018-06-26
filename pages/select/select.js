@@ -68,5 +68,15 @@ Page({
   },
   goBack: function() {
     wx.navigateBack()
+  },
+  newEvent:function(){
+    wx.navigateTo({
+      url: '../makeGroup/makeGroup'
+    })
+  },
+  joinEvent: function () {
+    wx.navigateTo({
+      url: '../addGroup/addGroup'
+    })
   }
 })

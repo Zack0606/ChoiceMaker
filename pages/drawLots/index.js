@@ -1,4 +1,4 @@
-// pages/more/more.js
+// pages/drawLots/index.js
 Page({
 
   /**
