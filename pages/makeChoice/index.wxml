@@ -1,7 +1,5 @@
-<!--pages/makeChoice/index.wxml-->
-<view>
-  <input ></input>
-
-  <button>开始</button>
+<image src="../../static/images/more/num.png" style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+<view style='margin-left:33%;'>
+<zan-stepper stepper="{{ config.num.stepper }}" min="{{ config.num.min }}" max="{{ config.num.max }}" hidden="true" data-component-id="config.num" bind:change="handleZanStepperChange"></zan-stepper>
 </view>
-<my-button></my-button>
+<button class="choice" bindtap="makeChoice" >生成决定</button>

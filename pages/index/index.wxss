@@ -4,4 +4,10 @@
   margin-right: 15%;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
+  color: #fff;
+  background-color: #118fff;
+  font-weight: 700rpx;
+}
+.title{
+  width:100%;
 }

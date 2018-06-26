@@ -9,7 +9,7 @@ Page({
     columns: [{
       id: 0,
       title: "来抓阄",
-      img: ""
+      img: "../../static/images/more/TITLE.png"
     }, {
       id: 1,
       title: "做选择",

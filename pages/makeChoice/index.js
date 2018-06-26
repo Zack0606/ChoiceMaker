@@ -5,9 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    config: {
+      num: {
+        title: '组数',
+        stepper: 1,
+        min: 1,
+        max: 100
+      },
+    },
   },
-
+  handleZanStepperChange({
+    detail: stepper,
+    target: {
+      dataset: {
+        componentId
+      }
+    }
+  }) {
+    this.setData({
+      [`${componentId}.stepper`]: stepper
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

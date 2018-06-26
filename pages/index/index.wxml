@@ -1,8 +1,8 @@
-<!--index.wxml-->
-<zan-panel>
+<image src="../../static/images/more/TITLE.png" style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+
   <zan-row>
-    <zan-col col='10' offset='9'>
-      <view class="title">选择决定器</view>
+    <zan-col>
+
     </zan-col>
   </zan-row>
   <zan-row>
@@ -12,4 +12,3 @@
       </zan-col>
     </view>
   </zan-row>
-</zan-panel>
