@@ -1,6 +1,7 @@
 // pages/index/makeOrder/makeOrder.js
 const app = getApp()
 var Bmob = require("../../utils/bmob.js");
+var Common = require('../../utils/common.js');
 
 Page({
   /**
@@ -40,40 +41,13 @@ Page({
    */
   onLoad: function() {
     var that = this
-    // var userInfo = app.getUserInfo();
     app.getUserInfo(function(userInfo) {
       that.setData({
         userInfo: userInfo
       });
       console.log(userInfo)
     });
-    wx.getStorage({
-      key: 'selectType',
-      success: function(res) {
-        that.setData({
-          roomType: res.data,
-          roomInfo: postRoomType.roomType[res.data],
-        })
-      }
-    });
-    wx.getStorage({
-      key: 'checkInDate',
-      success: function(res) {
-        that.setData({
-          checkInDate: res.data,
-        })
-      }
-    });
-    wx.getStorage({
-      key: 'checkOutDate',
-      success: function(res) {
-        that.setData({
-          checkOutDate: res.data,
-        })
-      }
-    });
   },
-
   // 计数器
   handleZanStepperChange({
     detail: stepper,
@@ -88,41 +62,21 @@ Page({
     });
   },
   formSubmit: function(e) {
-    var randomArray = this.getRandomArray(20)
-    var inputs = e.detail.value;
-    console.log(inputs);
-    var groupNumber = e.detail.value.groupNum;
-    var peopleNumber = e.detail.value.peopleNum;
-    var serveNumber = e.detail.value.randomNum;
-    var groupSize = peopleNumber / groupNumber + 1;
-    var theme = e.detail.value.theme;
-    var newServe = Bmob.Object.extend('serveNumbers');
-    var serve = new newServe;
-    serve.set("serveNumber", 1234);
-    serve.set("lastId", randomArray);
-    serve.set("groupSize", groupSize);
-    serve.set("groupNumber", groupNumber);
-    serve.save(null, {
-      success: function(result) {
-        // 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据
-        console.log("创建成功, objectId:" + result.id);
-        console.log(result)
-      },
-      error: function(result, error) {
-        // 添加失败
-        console.log(error);
-      }
-    });
-    console.log("success");
-    wx.navigateTo({
-      url: '../result/index?serveNumber='+serveNumber+'&type='+type,
-    })
-  },
-  getRandomArray:function(size){
-    var array=new Array();
-    for (var i=0;i<size;i++){
-      array[i]=i;
+    // 数据初始化
+    console.log(e)
+    var activityInfo = {
+      activityNumber: parseInt(e.detail.value.randomNum),
+      activityType: 0,
+      activitySize: e.detail.value.peopleNum,
+      groupNumber: e.detail.value.groupNum,
+      groupSize: Math.ceil(e.detail.value.peopleNum / e.detail.value.groupNum ),
+      title: e.detail.value.theme,
+      lots: [],
+      flag: 'new',
+      randomArray: [],
+      addition: ''
     }
-    return array.reverse()
+    console.log(activityInfo);
+    Common.newActivity(activityInfo);
   }
 })
