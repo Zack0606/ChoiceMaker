@@ -40,7 +40,7 @@ Page({
    */
   onLoad: function() {
     var that = this
-    var userInfo = app.getUserInfo();
+    // var userInfo = app.getUserInfo();
     app.getUserInfo(function(userInfo) {
       that.setData({
         userInfo: userInfo
@@ -113,7 +113,10 @@ Page({
         console.log(error);
       }
     });
-    console.log("success")
+    console.log("success");
+    wx.navigateTo({
+      url: '../result/index?serveNumber='+serveNumber+'&type='+type,
+    })
   },
   getRandomArray:function(size){
     var array=new Array();

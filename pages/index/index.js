@@ -1,6 +1,6 @@
 //index.js
 const app = getApp()
-
+var Common=require('../../utils/common.js');
 Page({
   data: {
     userInfo: {},
@@ -39,6 +39,8 @@ Page({
     })
   },
   onLoad: function() {
+    // Common.newActivity();
+    Common.joinActivity();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

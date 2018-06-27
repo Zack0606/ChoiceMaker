@@ -29,7 +29,7 @@ Page({
         
         var Main = Bmob.Object.extend("main");
         var main = new Main;
-        main.set('serverNumber', object.attributes.serveNumber);
+        main.set('serveNumber', object.attributes.serveNumber);
         main.set('mianId', object.attributes.lastId.shift());
         console.log(object.attributes.serveNumber)
         main.save(null, {
