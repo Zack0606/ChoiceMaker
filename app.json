@@ -8,7 +8,8 @@
     "pages/select/select",
     "pages/makeChoice/index",
     "pages/drawLots/index",
-    "pages/newLots/index"
+    "pages/newLots/index",
+    "pages/result/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -113,7 +113,10 @@ Page({
         console.log(error);
       }
     });
-    console.log("success")
+    console.log("success");
+    wx.navigateTo({
+      url: '../result/index?serveNumber='+serveNumber+'&type='+type,
+    })
   },
   getRandomArray:function(size){
     var array=new Array();
