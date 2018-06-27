@@ -18,15 +18,15 @@ Page({
       },
       peopleNum: {
         title: '参与人数',
-        stepper: 1,
+        stepper: 20,
         min: 1,
         max: 100
       },
       groupNum: {
         title: '组数',
-        stepper: 1,
+        stepper: 4,
         min: 1,
-        max: 100
+        max: 20
       },
       remarks: {
         title: '备注',
@@ -72,7 +72,6 @@ Page({
         })
       }
     });
-
   },
 
   // 计数器
@@ -89,21 +88,38 @@ Page({
     });
   },
   formSubmit: function(e) {
+    var randomArray = this.getRandomArray(20)
     var inputs = e.detail.value;
-    console.log(e);
-    var groupNum = e.detail.value.groupNum;
-    var peopleNum = e.detail.value.peopleNum;
-    var randomNum = e.detail.value.randomNum;
-    var each = peopleNum / groupNum + 1;
+    console.log(inputs);
+    var groupNumber = e.detail.value.groupNum;
+    var peopleNumber = e.detail.value.peopleNum;
+    var serveNumber = e.detail.value.randomNum;
+    var groupSize = peopleNumber / groupNumber + 1;
     var theme = e.detail.value.theme;
-    var Group = Bmob.Object.extend('group');
-    var group = new Group();
-    group.set("randomNum", randomNum)
-    group.set("each", each)
-    group.set("groupNum", groupNum)
-    group.set("peopleNum", peopleNum)
-    group.set("theme", theme)
-    group.save()
-
+    var newServe = Bmob.Object.extend('serveNumbers');
+    var serve = new newServe;
+    serve.set("serveNumber", 1234);
+    serve.set("lastId", randomArray);
+    serve.set("groupSize", groupSize);
+    serve.set("groupNumber", groupNumber);
+    serve.save(null, {
+      success: function(result) {
+        // 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据
+        console.log("创建成功, objectId:" + result.id);
+        console.log(result)
+      },
+      error: function(result, error) {
+        // 添加失败
+        console.log(error);
+      }
+    });
+    console.log("success")
+  },
+  getRandomArray:function(size){
+    var array=new Array();
+    for (var i=0;i<size;i++){
+      array[i]=i;
+    }
+    return array.reverse()
   }
 })

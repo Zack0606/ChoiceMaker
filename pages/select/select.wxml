@@ -1,7 +1,7 @@
 <!--pages/select/select.wxml-->
 
 <view>
-  <button bindtap='goToMakeGroup'>我要发起</button>  
-  <button bindtap='goToAddGroup'>我要加入 </button>
+  <button bindtap='newEvent'>我要发起</button>  
+  <button bindtap='joinEvent'>我要加入</button>
   <button bindtap='goBack'>返回首页</button>
 </view>
