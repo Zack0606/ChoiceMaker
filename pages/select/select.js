@@ -20,28 +20,38 @@ Page({
       img: ""
     }]
   },
+  onLoad: function (options) {
+    this.setData({
+      columnId: options.columnId
+    })
+  },
   selectRole: function(e) {
     var a = e.currentTarget.id
-    var b= this.data.columnId
-    if (a==2)
+    var b = this.data.columnId
+    if (a == 2)
       wx.navigateTo({
         url: '../index/index',
       })
-    else if(a == 0)
-      {
-        if (b == 2)
-          wx.navigateTo({
-            url: '../makeGroup/makeGroup'
-          })
-      }
-    else if (a == 1) {
-      if (b == 2)
+    else if (a == 0) {
+      if (this.data.columnId == 2) {
         wx.navigateTo({
-          url: '../addGroup/addGroup'
+          url: '../makeGroup/makeGroup'
         })
+      }
+      else if (this.data.columnId == 0) {
+        wx.navigateTo({
+          url: '../drawLots/index'
+        })
+      }
+    } else if (a == 1) {
+      if (b == 2||b==0)
+      {
+      wx.navigateTo({
+        url: '../addGroup/addGroup'
+      })
+      }
     }
   }
-
 
 
 })

@@ -1,1 +1,13 @@
-/* pages/result/result.wxss */
+.random{
+  font-size:200rpx;
+  color:#fff;
+  font-weight: 900rpx;
+  text-align: center;
+}
+.main{
+  background-color: #118fff;
+
+}
+page{
+    background-color: #118fff;
+}

@@ -9,7 +9,7 @@
       </zan-col>
     </zan-panel>
 
-    <zan-panel title='来试试你的手气吧！'>
+    <zan-panel >
       <zan-cell-group>
         <view class="field-container">
           <zan-field name="peopleNum" title="{{ config.peopleNum.title }} " input-type="number" disabled="true" value="{{ config.peopleNum.stepper }}">

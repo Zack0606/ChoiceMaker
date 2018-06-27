@@ -15,8 +15,8 @@
 .zan-stepper .zan-stepper__minus {
   border-right: none;
   border-radius: 2px 0 0 2px;
-  border-color: #118fff;
-  color: #118fff;
+  border-color: #fff;
+  color: #fff;
   font-size: 30rpx;
 }
 
@@ -26,16 +26,16 @@
   text-align: center;
   vertical-align: middle;
   min-height: auto;
-  border-color: #118fff;
-  color: #118fff;
+  border-color: #fff;
+  color: #fff;
   font-size: 30rpx;
 }
 
 .zan-stepper .zan-stepper__plus {
   border-left: none;
   border-radius: 0 2px 2px 0;
-    border-color: #118fff;
-  color: #118fff;
+    border-color: #fff;
+  color: #fff;
   font-size: 30rpx;
 }
 

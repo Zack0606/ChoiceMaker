@@ -15,6 +15,7 @@ Page({
   },
 
   formSubmit: function(e) {
+
     var that = this;
     var input = e.detail.value;
     console.log(input);
@@ -26,7 +27,7 @@ Page({
     serve.find({
       success: function(results) {
         var object = results[0];
-        
+
         var Main = Bmob.Object.extend("main");
         var main = new Main;
         main.set('serveNumber', object.attributes.serveNumber);
@@ -41,15 +42,15 @@ Page({
             console.log("加入失败: " + error.code + " " + error.message);
           }
         });
-  
+
         var Serve = Bmob.Object.extend("serveNumbers");
         var serve = new Bmob.Query(Serve);
         serve.get(object.id, {
-          success: function (result) {
+          success: function(result) {
             result.set('lastId', object.attributes.lastId);
             result.save();
           },
-          error: function (result, error) {
+          error: function(result, error) {
             console.log("更新失败: " + error.code + " " + error.message);
           }
         })
@@ -58,5 +59,11 @@ Page({
         console.log("查询失败: " + error.code + " " + error.message);
       }
     });
+
+    wx.navigateTo({
+      url: '../result/result?randomNum='+input.randomNum
+    })
+
+
   }
 })

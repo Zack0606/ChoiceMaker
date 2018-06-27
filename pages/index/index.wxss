@@ -1,13 +1,22 @@
 /**index.wxss**/
 .column-btn{
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
   color: #fff;
+  font-size: 60rpx;
   background-color: #118fff;
-  font-weight: 700rpx;
+  font-weight: 900rpx;
+
+}
+button::after{
+    border-color: #fff;
+    border-width: 5rpx;
 }
 .title{
   width:100%;
+}
+page{
+    background-color: #118fff;
 }

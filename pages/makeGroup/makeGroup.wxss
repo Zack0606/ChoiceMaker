@@ -57,9 +57,12 @@ zan-stepper{
 }
 
 button{
-  height: 80rpx;
+  height:   100rpx;
   background-color: #118fff;
   text-align: center;
-  font-size: 30rpx;
+  font-size: 50rpx;
   color: #fff;
+}
+page{
+  background-color:#118fff;
 }

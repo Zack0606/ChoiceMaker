@@ -55,18 +55,20 @@
 }
 
 .zan-field__title {
-  color: #333;
+  color: #fff;
   min-width: 65px;
   padding-right: 10px;
+  font-size:20px;
 }
 
 .zan-field__input {
+  color:#fff;
   flex: 1;
   line-height: 1.6;
   padding: 4px 0;
   min-height: 22px;
   height: auto;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .zan-field__placeholder {

@@ -1,3 +1,11 @@
+page{
+  background-color: #118fff;
+}
+button::after{
+  font-size: 80rpx;
+  font-weight:800rpx;
+  height: 100rpx;
+}
 .roomInfo-zan-col {
   line-height: 200rpx;
   text-align: center;

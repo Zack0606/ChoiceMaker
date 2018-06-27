@@ -10,11 +10,9 @@ Page({
     groupId: '',
     config: {
       name: {
-        title: '主题',
-        placeholder: '请输入活动主题'
+        title: '主题'
       },
       theme: {
-        placeholder: '请输入4位随机数字'
       },
       peopleNum: {
         title: '参与人数',
@@ -115,7 +113,7 @@ Page({
     });
     console.log("success");
     wx.navigateTo({
-      url: '../result/index?serveNumber='+serveNumber+'&type='+type,
+      url: '../result/result?serveNumber='+serveNumber+'&type='+type,
     })
   },
   getRandomArray:function(size){

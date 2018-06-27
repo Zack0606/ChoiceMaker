@@ -4,18 +4,17 @@
   <doc-page without-padding>
     <zan-panel>
       <zan-col col="24" col-class="roomInfo-zan-col">
-        <zan-field name="randomNum" placeholder="{{ config.theme.placeholder }}" value='1234'>
+        <zan-field name="randomNum" placeholder="{{ config.theme.placeholder }}" value='例如1234'>
         </zan-field>
       </zan-col>
     </zan-panel>
-
-    <zan-panel title='面对面分组'>
+      <zan-panel>
       <zan-cell-group>
         <zan-field 
         name="theme" 
         title="{{ config.name.title }}" 
         placeholder="{{ config.name.placeholder }}" 
-        value='test'>
+        value='例如“数据结构分组”'>
         </zan-field>
         <view class="field-container">
           <zan-field 
