@@ -40,7 +40,7 @@ Page({
    */
   onLoad: function() {
     var that = this
-    var userInfo = app.getUserInfo();
+    // var userInfo = app.getUserInfo();
     app.getUserInfo(function(userInfo) {
       that.setData({
         userInfo: userInfo
