@@ -1,0 +1,2 @@
+<view >{{result[resultId].text1}}</view>
+<view>{{result[resultId].text2}}</view>

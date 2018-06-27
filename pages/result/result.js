@@ -1,48 +1,40 @@
-// pages/makeChoice/index.js
+// pages/result/result.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    config: {
-      num: {
-        title: '组数',
-        stepper: 1,
-        min: 1,
-        max: 100
-      },
-    },
-    random:''
+    resultId:2,
+    result: [{
+      id: 0,
+      title: "来抓阄",
+      img: "../../static/images/more/TITLE.png"
+    }, {
+      id: 1,
+      title: "做选择",
+      img: ""
+    }, {
+      id: 2,
+      title: "来分组",
+      img: "",
+      text1:"您的组号是",
+      text2:"您的小组名单"
+    }, {
+      id: 3,
+      title: "排顺序",
+      img: ""
+    }, {
+      id: 4,
+      title: "分任务",
+      img: ""
+    }, {
+      id: 5,
+      title: "来签到",
+      img: ""
+    }]
   },
-  handleZanStepperChange({
-    detail: stepper,
-    target: {
-      dataset: {
-        componentId
-      }
-    }
-  }) {
-    this.setData({
-      [`${componentId}.stepper`]: stepper
-    });
-  },
-  makeChoice:function (){
-    var that=this
-    let runtimes = 0
-    
-    for (var i=0;i<10;i++){   
-     
-    var randomnum = Math.round(Math.random() * this.data.config.num.stepper);
-    setTimeout(function(){
-      that.setData({
-        random:randomnum
-      })
-      
-      },1000)
-      console.log(this.data.random)
-    }
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

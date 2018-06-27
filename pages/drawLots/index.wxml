@@ -1,2 +1,35 @@
-<!--pages/drawLots/index.wxml-->
-<text>pages/drawLots/index.wxml</text>
+<!--pages/index/makeOrder/makeOrder.wxml-->
+<image src="../../static/images/more/input.png" style="width:100%;height:150rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <doc-page without-padding>
+    <zan-panel>
+      <zan-col col="24" col-class="roomInfo-zan-col">
+        <zan-field name="randomNum" placeholder="{{ config.theme.placeholder }}" value='1234'>
+        </zan-field>
+      </zan-col>
+    </zan-panel>
+
+    <zan-panel title='来试试你的手气吧！'>
+      <zan-cell-group>
+        <view class="field-container">
+          <zan-field name="peopleNum" title="{{ config.peopleNum.title }} " input-type="number" disabled="true" value="{{ config.peopleNum.stepper }}">
+          </zan-field>
+          <zan-stepper stepper="{{ config.peopleNum.stepper }}" min="{{ config.peopleNum.min }}" max="{{ config.peopleNum.max }}" hidden="true" data-component-id="config.peopleNum" bind:change="handleZanStepperChange"></zan-stepper>
+        </view>
+        <view wx:for="{{sum}}" wx:key="index">
+          <zan-field name="result{{index+1}}" title="{{index+1}}号阄" placeholder="输入一种结果吧 ">
+          </zan-field>
+        </view>
+        <zan-col col='8'>
+          <button class='add' bindtap='addResult'>+</button>
+        </zan-col>
+        <zan-col col='16'>
+          <button class='add' form-type="submit">发起</button>
+        </zan-col>
+
+      </zan-cell-group>
+    </zan-panel>
+  </doc-page>
+
+
+</form>

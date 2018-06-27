@@ -1,13 +1,14 @@
 {
   "pages": [
+    "pages/drawLots/index",
+    "pages/makeGroup/makeGroup",
+    "pages/result/result",
     "pages/index/index",
     "pages/login/login",
     "pages/logs/logs",
-    "pages/makeGroup/makeGroup",
     "pages/addGroup/addGroup",
     "pages/select/select",
     "pages/makeChoice/index",
-    "pages/drawLots/index",
     "pages/newLots/index"
   ],
   "window": {

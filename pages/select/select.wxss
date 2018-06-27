@@ -1,1 +1,7 @@
-/* pages/select/select.wxss */
+.select{
+  width:60%;
+  margin-top: 20rpx;
+  color: #fff;
+  background-color: #118fff;
+  font-weight: 700rpx;
+}

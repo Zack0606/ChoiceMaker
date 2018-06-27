@@ -5,62 +5,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    groupId: '',
+    config: {
+      theme: {
+        placeholder: '请输入4位随机数字'
+      },
+      peopleNum: {
+        title: '参与人数',
+        stepper: 20,
+        min: 1,
+        max: 100
+      }
+    },
+    result: [""],
+    sum: 1,
+    userInfo: null
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  handleZanStepperChange({
+    detail: stepper,
+    target: {
+      dataset: {
+        componentId
+      }
+    }
+  }) {
+    this.setData({
+      [`${componentId}.stepper`]: stepper
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  addResult: function(e) {
+    console.log(e)
+    this.setData({
+      sum: this.data.sum + 1,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  formSubmit: function(e) {
+    var inputs = e.detail.value;
+    console.log(e);
   }
+
+
+
 })

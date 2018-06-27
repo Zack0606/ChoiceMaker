@@ -1,4 +1,5 @@
 <!--pages/index/makeOrder/makeOrder.wxml-->
+<image src="../../static/images/more/input.png" style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
 <form bindsubmit="formSubmit" bindreset="formReset">
   <doc-page without-padding>
     <zan-panel>

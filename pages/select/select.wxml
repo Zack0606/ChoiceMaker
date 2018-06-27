@@ -1,7 +1,6 @@
 <!--pages/select/select.wxml-->
-
-<view>
-  <button bindtap='newEvent'>我要发起</button>  
-  <button bindtap='joinEvent'>我要加入</button>
-  <button bindtap='goBack'>返回首页</button>
+    <view wx:for="{{rows}}">
+      <zan-row>
+        <button class="select" bindtap="selectRole" id="{{item.id}}">{{item.title}}</button>
+        </zan-row>
 </view>

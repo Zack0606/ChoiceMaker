@@ -3,3 +3,4 @@
 <zan-stepper stepper="{{ config.num.stepper }}" min="{{ config.num.min }}" max="{{ config.num.max }}" hidden="true" data-component-id="config.num" bind:change="handleZanStepperChange"></zan-stepper>
 </view>
 <button class="choice" bindtap="makeChoice" >生成决定</button>
+<view class='random'>{{random}}</view>

@@ -1,1 +1,67 @@
-/* pages/drawLots/index.wxss */
+.roomInfo-zan-col {
+  line-height: 200rpx;
+  text-align: center;
+  background-color: #118fff;
+  font-size: 12px;
+  color: #fff;
+}
+.add{
+  margin:10rpx;
+  margin-top: 20rpx;
+  color: #fff;
+  background-color: #118fff;
+  font-weight: 700rpx;
+}
+
+
+.roomInfo-zan-col:nth-child(even) {
+  background-color: #66c6f2;
+}
+
+.field__title--radius {
+  padding-bottom: 20rpx;
+}
+
+.footer-tips{
+  padding: 16rpx;
+}
+
+text{
+  display: block;
+  font-size: 25rpx;
+}
+
+text{
+  display: block;
+  font-size: 25rpx;
+  height: 160rpx;
+}
+
+.field-container{
+  position: relative;
+}
+zan-stepper{
+  position: absolute;
+  right: 36rpx;
+  top: 20%;
+  z-index: 3;
+}
+
+.sum{
+  position: fixed;
+  bottom: 0;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #ffffff;
+  font-size: 12px;
+}
+
+.submit{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  line-height: 80rpx;
+  background-color: #118fff;
+}
+
+

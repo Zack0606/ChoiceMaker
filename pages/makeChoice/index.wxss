@@ -5,3 +5,8 @@
   background-color: #118fff;
   font-weight: 700rpx;
 }
+.random{
+  font-size:100rpx;
+  color:#118fff;
+  text-align: center;
+}
