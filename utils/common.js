@@ -68,7 +68,7 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
   check.find({
     success: function(results) {
       if (results.length > 0) {
-        console.log("数字已存在，请重新选择数字");
+        console.log("数字已存在");
         console.log(results)
       } else {
         // 数字不存在，添加数据
@@ -97,6 +97,9 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
         activity.save(null, {
           success: function(result) {
             console.log("创建成功")
+            wx.showToast({
+              title: '创建成功',
+            })
             console.log(result)
             //直接加入
             // var user = new Bmob.User()
@@ -139,12 +142,18 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
             console.log("创建失败")
             console.log(result)
             console.log(error)
+            wx.showToast({
+              title: '创建失败',
+            })
           }
         })
       }
     },
     error: function(error) {
       console.log("数字不存在，继续");
+      // wx.showToast({
+      //   title: '数字不存在',
+      // })
     }
   })
 };
@@ -163,13 +172,22 @@ function joinActivity(activityNumber = activityinfo.activityNumber, userInfo = u
   check.find({
     success: function(results) {
       if (results.length == 0) {
-        console.log("数字" + activityNumber+"不存在，请重新输入");
+        console.log("数字" + activityNumber+"数字不存在");
+        wx.showToast({
+          title: '数字不存在',
+        })
       } else {
         // 检查是否已加入
         console.log(results)
+<<<<<<< HEAD
         var user=new Bmob.User();
         var userid= wx.getStorageSync('user_id')
         user.id = userid;
+=======
+        var user = new Bmob.User()
+        user.id = userInfo.userId;
+        console.log(user)
+>>>>>>> dev-liszt
         var Main = Bmob.Object.extend("main");
         var query = new Bmob.Query(Main);
         query.equalTo('activityId', results[0].id);
@@ -188,6 +206,9 @@ function joinActivity(activityNumber = activityinfo.activityNumber, userInfo = u
                 success: function(result) {
                   console.log("加入成功, objectId:" + result.id);
                   console.log(result)
+                  wx.showToast({
+                    title: '加入成功',
+                  })
                   // 本地数据同步
                   console.log("本地数据同步")
                   var my_activity = {
@@ -229,6 +250,9 @@ function joinActivity(activityNumber = activityinfo.activityNumber, userInfo = u
               });
             } else {
               console.log("您已加入")
+              wx.showToast({
+                title: '您已加入',
+              })
             }
           }
         })

@@ -8,11 +8,10 @@ Page({
     activityType: 0,
     resultId: 0,
     randomNum: "",
-    contentNum: 0,
+    content: 0,
     groupNumber: 0,
-    activityNumber:0,
+    activityNumber: 0,
     size: 0,
-    memberList: [],
     result: [{
       id: 0,
       title: "来抓阄",
@@ -52,40 +51,53 @@ Page({
       activityNumber: options.activityNumber
     })
   },
-  getNow:function(){
-    var that=this;
+  getNow: function() {
+    var that = this;
     var user_id = wx.getStorageSync('user_id');
     var Main = Bmob.Object.extend('main');
     var user = new Bmob.User();
     user.id = user_id;
     var query = new Bmob.Query(Main);
     query.equalTo('activityNumber', parseInt(this.data.activityNumber));
-    // query.equalTo('userId',user);
+    query.equalTo('userId',user);
     query.find({
-      success: function (result) {
+      success: function(result) {
         console.log("result");
         console.log(result);
         var Activity = Bmob.Object.extend('activities');
         var query2 = new Bmob.Query(Activity);
         query2.get(result[0].attributes.activityId.id, {
-          success: function (res) {
+          success: function(res) {
             console.log("res")
             console.log(res)
             if (res.attributes.activityType == 0) {
               console.log("抓阄结果");
               that.setData({
-                contentNum: result[0].attributes.mainId
+                content: '空'
               })
+              if (res.attributes.lots[result[0].attributes.mainId - 1] != null) {
+                that.setData({
+                  content: res.attributes.lots[result[0].attributes.mainId - 1]
+                })
+              }
             } else if (res.attributes.activityType == 2) {
               console.log("分组结果");
-              var temp = parseInt((result[0].attributes.mainId - 1) / res.attributes.groupSize) + 1
+              var temp = Math.ceil((result[0].attributes.mainId) / res.attributes.groupSize)
               that.setData({
-                contentNum: temp
+                content: temp
               })
             } else if (res.attributes.activityType == 3) {
               console.log("排序结果");
+              var temp = parseInt((result[0].attributes.mainId - 1) / res.attributes.groupSize) + 1
+              that.setData({
+                content: temp
+              })
             } else if (res.attributes.activityType == 4) {
               console.log("拼手速结果");
+              var temp = parseInt((result[0].attributes.mainId - 1) / res.attributes.groupSize) + 1
+              that.setData({
+                content: temp
+              })
             }
           }
         })
