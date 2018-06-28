@@ -67,6 +67,7 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
     success: function(results) {
       if (results.length > 0) {
         console.log("数字已存在，请重新选择数字");
+        console.log(results)
       } else {
         // 数字不存在，添加数据
         // var Activity = Bmob.Object.extend('activities');

@@ -4,7 +4,7 @@
   <view wx:for="{{showList}}" wx:key="index" wx:for-item="item">
     <zan-col col="12">
 <view >第{{index+1}}组</view>
-    <view wx:for="{{showList[index]}}" wx:key="idx" wx:for="itm" >
+    <view wx:for="{{item}}" wx:key="idx" wx:for-item="itm" >
     {{itm}}</view>
     </zan-col>
 </view>

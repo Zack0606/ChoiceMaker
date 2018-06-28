@@ -34,14 +34,19 @@ Page({
         url: '../index/index',
       })
     else if (a == 0) {
-      if (this.data.columnId == 2) {
+      if (b == 2) {
         wx.navigateTo({
           url: '../makeGroup/makeGroup'
         })
       }
-      else if (this.data.columnId == 0) {
+      else if (b == 0) {
         wx.navigateTo({
           url: '../drawLots/index'
+        })
+      }
+      else if (b == 4) {
+        wx.navigateTo({
+          url: '../compareSpeed/compareSpeed'
         })
       }
     } else if (a == 1) {
@@ -52,7 +57,7 @@ Page({
         url: '../addGroup/addGroup?addId='+b
       })
       }
-    }
+    } 
   }
 
 

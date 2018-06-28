@@ -14,12 +14,15 @@ Page({
       num: ''
     },
     addId: 0,
-    add:["抓阄","选择","分组","排序"]
+    add:["抓阄","选择","分组","排序"],
+    groupSize:0
   },
-  onLoad: function (options) {
-    this.setData({
-      addId: options.addId
-    })
+
+  onLoad:function(options){
+      this.setData({
+        addId:options.addId
+      })
+
   },
   formSubmit: function(e) {
     var that = this;
