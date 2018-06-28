@@ -7,7 +7,9 @@ Page({
   data: {
     resultId:0,
     randomNum:"",
-    contentNum:3,
+    contentNum:0,
+    groupNumber:0,
+    size:0,
     memberList:[],
     result: [{
       id: 0,
@@ -44,17 +46,25 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    this.setData({
-    randomNum : options.randomNum
-    })
     wx.getStorage({
       key: 'my_activities',
       success: function(res) {
         that.setData({
           resultId:res.data[0].type,
-          contentNum: res.data[0].my_id /res.data[0].groupNum +1
+          groupNumber: res.data[0].groupNumber,
+          size: res.data[0].size,
+          myId: res.data[0].my_id
         })
+        if(that.data.resultId==2)
+        {
+          var temp=parseInt( (that.data.myId - 1) / (that.data.size / that.data.groupNumber)) + 1
+          that.setData({
+            contentNum :temp
+          })
+        }
+        console.log("r="+that.data.contentNum)
       },
+   
     })
   }
 })

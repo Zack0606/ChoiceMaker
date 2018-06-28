@@ -12,6 +12,7 @@ Page({
     ],
     showList: [],
     groupSize: 0,
+    groupNumber:0
   },
   queryResult: function (e) {
     var that = this
@@ -21,19 +22,17 @@ Page({
       success: function (res) {
         that.setData({
           groupList: res.data.details,
-          groupSize: res.data.activityInfo.groupSize
+          groupSize: res.data.activityInfo.groupSize,
+          groupNumber: res.data.activityInfo.groupNumber
         })
         console.log(that.data.groupList)
         var dest = new Array;
-        for (var i = 0;i<that.data.groupSize;i++){
+        for (var i = 0;i<that.data.groupNumber;i++){
              dest[i] = new Array;
         }
-        for (var i = 2; i < that.data.groupList.length; i++) {
-          console.log(i)
+        for (var i = 0; i < that.data.groupList.length; i++) {
           var ai = that.data.groupList[i];
-          var groupId = parseInt(ai.id / that.data.groupSize);
-          console.log("group="+groupId);
-          console.log("group=" + dest[groupId].length);
+          var groupId = parseInt((ai.id-1) / that.data.groupSize);
           dest[groupId].push( ai.user.nickname)
           ;
         }

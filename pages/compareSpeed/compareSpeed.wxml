@@ -1,0 +1,55 @@
+<image src="../../static/images/more/input.png" style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <doc-page without-padding>
+    <zan-panel>
+      <zan-col col="24" col-class="roomInfo-zan-col">
+        <zan-field name="randomNum" placeholder="{{ config.theme.placeholder }}" value='例如1234'>
+        </zan-field>
+      </zan-col>
+    </zan-panel>
+      <zan-panel>
+      <zan-cell-group>
+        <zan-field 
+        name="theme" 
+        title="{{ config.name.title }}" 
+        placeholder="{{ config.name.placeholder }}" 
+        value='例如“数据结构分组”'>
+        </zan-field>
+        <view class="field-container">
+          <zan-field 
+          name="peopleNum" 
+          title="{{ config.peopleNum.title }} " 
+          input-type="number" 
+          disabled="true" 
+          value="{{ config.peopleNum.stepper }}">
+          </zan-field>
+          <zan-stepper 
+          stepper="{{ config.peopleNum.stepper }}" 
+          min="{{ config.peopleNum.min }}" 
+          max="{{ config.peopleNum.max }}" 
+          hidden="true" 
+          data-component-id="config.peopleNum" 
+          bind:change="handleZanStepperChange"></zan-stepper>
+        </view>
+        <view class="field-container">
+          <zan-field 
+          name="groupNum" 
+          title="{{ config.groupNum.title }}" 
+          input-type="number" 
+          disabled="true" 
+          value="{{ config.groupNum.stepper }}">
+          </zan-field>
+          <zan-stepper 
+          stepper="{{ config.groupNum.stepper }}" 
+          min="{{ config.groupNum.min }}" 
+          max="{{ config.groupNum.max }}" 
+          hidden="true" 
+          data-component-id="config.groupNum" 
+          bind:change="handleZanStepperChange"></zan-stepper>
+        </view>
+      </zan-cell-group>
+    </zan-panel>
+  </doc-page>
+
+  <button form-type="submit">发起</button>
+</form>

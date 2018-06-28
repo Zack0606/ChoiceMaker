@@ -10,7 +10,8 @@
     "pages/select/select",
     "pages/makeChoice/index",
     "pages/newLots/index",
-    "pages/groupResult/index"
+    "pages/groupResult/index",
+    "pages/compareSpeed/compareSpeed"
   ],
   "window": {
     "backgroundTextStyle": "light",
