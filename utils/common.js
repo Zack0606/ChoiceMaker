@@ -68,7 +68,7 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
   check.find({
     success: function(results) {
       if (results.length > 0) {
-        console.log("数字已存在，请重新选择数字");
+        console.log("数字已存在");
         console.log(results)
       } else {
         // 数字不存在，添加数据
@@ -172,11 +172,10 @@ function joinActivity(activityNumber = activityinfo.activityNumber, userInfo = u
   check.find({
     success: function(results) {
       if (results.length == 0) {
-        console.log("数字" + activityNumber+"不存在，请重新输入");
+        console.log("数字" + activityNumber+"数字不存在");
         wx.showToast({
-          title: '不存在，请重新输入',
+          title: '数字不存在',
         })
-        
       } else {
         // 检查是否已加入
         console.log(results)
