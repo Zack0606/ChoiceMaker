@@ -3,7 +3,7 @@
   <doc-page without-padding>
     <zan-panel>
       <zan-col col="24" col-class="roomInfo-zan-col">
-        <zan-field name="randomNum" placeholder="{{ config.theme.placeholder }}" value='例如1234'>
+        <zan-field name="randomNum" placeholder="0000">
         </zan-field>
       </zan-col>
     </zan-panel>

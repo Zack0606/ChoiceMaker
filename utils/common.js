@@ -179,15 +179,9 @@ function joinActivity(activityNumber = activityinfo.activityNumber, userInfo = u
       } else {
         // 检查是否已加入
         console.log(results)
-<<<<<<< HEAD
-        var user=new Bmob.User();
-        var userid= wx.getStorageSync('user_id')
-        user.id = userid;
-=======
         var user = new Bmob.User()
         user.id = userInfo.userId;
         console.log(user)
->>>>>>> dev-liszt
         var Main = Bmob.Object.extend("main");
         var query = new Bmob.Query(Main);
         query.equalTo('activityId', results[0].id);
