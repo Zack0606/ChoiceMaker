@@ -12,7 +12,7 @@ Page({
     result: [{
       id: 0,
       title: "来抓阄",
-      img: "../../static/images/more/img01.png"
+      img1: "../../static/images/more/img01.png"
     }, {
       id: 1,
       title: "做选择",
@@ -51,8 +51,8 @@ Page({
       key: 'my_activities',
       success: function(res) {
         that.setData({
-          resultId:res.data[0].type
-          //contentNum:
+          resultId:res.data[0].type,
+          contentNum: res.data[0].my_id /res.data[0].groupNum +1
         })
       },
     })

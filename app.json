@@ -9,7 +9,8 @@
     "pages/addGroup/addGroup",
     "pages/select/select",
     "pages/makeChoice/index",
-    "pages/newLots/index"
+    "pages/newLots/index",
+    "pages/groupResult/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
