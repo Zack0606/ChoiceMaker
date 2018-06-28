@@ -8,11 +8,10 @@ Page({
     activityType: 0,
     resultId: 0,
     randomNum: "",
-    contentNum: 0,
+    content: 0,
     groupNumber: 0,
     activityNumber:0,
     size: 0,
-    memberList: [],
     result: [{
       id: 0,
       title: "来抓阄",
@@ -74,18 +73,31 @@ Page({
             if (res.attributes.activityType == 0) {
               console.log("抓阄结果");
               that.setData({
-                contentNum: result[0].attributes.mainId
+                content: '空'
               })
+              if (res.attributes.lots[result[0].attributes.mainId-1]!=null){
+                that.setData({
+                  content: res.attributes.lots[result[0].attributes.mainId - 1]
+                })
+              }
             } else if (res.attributes.activityType == 2) {
               console.log("分组结果");
               var temp = parseInt((result[0].attributes.mainId - 1) / res.attributes.groupSize) + 1
               that.setData({
-                contentNum: temp
+                content: temp
               })
             } else if (res.attributes.activityType == 3) {
               console.log("排序结果");
+              var temp = parseInt((result[0].attributes.mainId - 1) / res.attributes.groupSize) + 1
+              that.setData({
+                content: temp
+              })
             } else if (res.attributes.activityType == 4) {
               console.log("拼手速结果");
+              var temp = parseInt((result[0].attributes.mainId - 1) / res.attributes.groupSize) + 1
+              that.setData({
+                content: temp
+              })
             }
           }
         })
