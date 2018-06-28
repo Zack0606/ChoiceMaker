@@ -22,7 +22,6 @@ Page({
       this.setData({
         addId:options.addId
       })
-
   },
   formSubmit: function(e) {
     var that = this;
@@ -32,7 +31,7 @@ Page({
     Common.joinActivity(activityNumber)
     
     wx.navigateTo({
-      url: '../result/result',
+      url: '../result/result?activityType='+this.data.addId+'&activityNumber='+activityNumber,
     })
   }
 })

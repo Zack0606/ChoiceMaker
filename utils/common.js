@@ -38,6 +38,8 @@ function getRandomArray(size) {
     arr[arr.length - 1] = center;
     arr = arr.slice(0, arr.length - 1);
   }
+  console.log("数组大小")
+  console.log(result.length)
   return result
 }
 
@@ -80,7 +82,7 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
         }else{
           activityInfo.randomArray = getRandomArray(activityInfo.activitySize)
         }
-        var myId = activityInfo.randomArray.shift()
+        // var myId = activityInfo.randomArray.shift()
         var activity = new Activity();
         activity.set("activityNumber", activityInfo.activityNumber);
         activity.set("activityType", activityInfo.activityType);
@@ -175,11 +177,8 @@ function joinActivity(activityNumber = activityinfo.activityNumber, userInfo = u
           success: function(res) {
             if (res.length == 0) {
               console.log('准备加入')
-              
               var main = new Main();
               main.set('activityNumber', activityNumber);
-              // var activity=new Bmob.Query(Activity)
-              // activity.id = results[0].id
               main.set('activityId', results[0]);
               main.set('userId', user);
               var myId = results[0].attributes.randomArray.shift()

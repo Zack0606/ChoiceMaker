@@ -1,9 +1,5 @@
 <view class="main">
-<image style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;" src="{{result[resultId].img1}}"></image>
+<image style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;" src="{{result[activityType].img1}}"></image>
 <view class="random">{{contentNum}}</view>
-<image style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;" src="{{result[resultId].img2}}"></image>
-<view wx:for="{{memberList}}"></view>
-<view class="member"></view>
-
-
+<button bindtap='getNow'>chaxun</button>
 </view>
