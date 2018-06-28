@@ -25,8 +25,11 @@ Page({
     var that = this;
     var input = e.detail.value;
     console.log(e)
-    var activityNumber=parseInt(e.detail.value.randomNum)
+    var activityNumber = parseInt(e.detail.value.randomNum)
     Common.joinActivity(activityNumber)
     
+    wx.navigateTo({
+      url: '../result/result',
+    })
   }
 })

@@ -64,7 +64,7 @@ Page({
     console.log(e)
     var activityInfo = {
       activityNumber: parseInt(e.detail.value.randomNum),
-      activityType: 0,
+      activityType: 2 ,
       activitySize: e.detail.value.peopleNum,
       groupNumber: e.detail.value.groupNum,
       groupSize: Math.ceil(e.detail.value.peopleNum / e.detail.value.groupNum ),
@@ -76,5 +76,8 @@ Page({
     }
     console.log(activityInfo);
     Common.newActivity(activityInfo);
+    wx.navigateTo({
+      url: '../groupResult/index?groupResult='+e.detail.value.randomNum
+    })
   }
 })

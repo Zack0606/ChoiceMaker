@@ -42,6 +42,8 @@ Page({
   formSubmit: function(e) {
     var inputs = e.detail.value;
     console.log(e);
+    var activityNumber = parseInt(e.detail.value.randomNum)
+    Common.joinActivity(activityNumber)
   }
 
 
