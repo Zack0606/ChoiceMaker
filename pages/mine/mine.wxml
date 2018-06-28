@@ -13,12 +13,11 @@
       <zan-col style="  text-align: right; font-size: 50rpx;color:#fff;" col="7">
         <view wx:if="{{itm.type==0}}">来抓阄</view>
         <view wx:elif="{{itm.type==2}}">来分组
-          <!-- <view>{{itm.my_id/(itm.size/item.groupNumber)}}</view>  -->
         </view>
         <view wx:elif="{{itm.type==3}}">排顺序</view>
         <view wx:elif="{{itm.type==4}}">拼手速</view>
       </zan-col>
-
+                 <zan-col style="  text-align: center; font-size: 50rpx;color:#fff;" col="9"><view>{{itm.my_id}}</view></zan-col>  
     </zan-row>
   </view>
 </view>

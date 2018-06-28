@@ -94,7 +94,7 @@ Page({
             } else if (res.attributes.activityType == 4) {
               console.log("拼手速结果");
               that.setData({
-                content: result[0].attributes.mainId+1
+                content: result[0].attributes.mainId
               })
             }
           }

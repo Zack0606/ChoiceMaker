@@ -17,6 +17,12 @@ Page({
         key: 'my_activities',
         success: function(res) {
           console.log(res.data)
+          for(var i=0;i<res.data.length;i++){
+            if (res.data[i].type==2)
+            {
+              res.data[i].my_id=Math.ceil(res.data[i].my_id / (res.data[i].size / res.data[i].groupNumber))
+            }
+          }
           that.setData({
             myAct:res.data
           })

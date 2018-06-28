@@ -76,7 +76,7 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
         if(activityInfo.activityType==4){
           var arr = [];
           for (var i = 0; i <=activityInfo.activitySize; i++) {
-            arr[i] = i
+            arr[i] = i+1
           }
           activityInfo.randomArray = arr
         }else{
