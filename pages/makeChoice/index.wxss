@@ -6,7 +6,81 @@
   font-weight: 700rpx;
 }
 .random{
-  font-size:100rpx;
-  color:#118fff;
+  font-size:200rpx;
+  color:#fff;
+  font-weight: 900rpx;
   text-align: center;
+}
+page{
+  background-color: #118fff;
+}
+.zan-field__input::after{
+    font-size:60rpx;
+}
+button::after{
+
+  font-size: 60rpx;
+  font-weight:800rpx;
+  height: 100rpx;
+  border-color: #118fff;
+}
+.roomInfo-zan-col {
+  line-height: 200rpx;
+  text-align: center;
+  background-color: #118fff;
+  font-size: 12px;
+  color: #fff;
+}
+
+.roomInfo-zan-col:nth-child(even) {
+  background-color: #66c6f2;
+}
+
+.field__title--radius {
+  padding-bottom: 20rpx;
+}
+
+.footer-tips{
+  padding: 16rpx;
+}
+
+text{
+  display: block;
+  font-size: 25rpx;
+}
+
+text{
+  display: block;
+  font-size: 25rpx;
+  height: 160rpx;
+}
+
+.field-container{
+  position: relative;
+}
+
+
+.sum{
+  position: fixed;
+  bottom: 0;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #ffffff;
+  font-size: 12px;
+}
+
+.submit{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  line-height: 80rpx;
+  background-color: #118fff;
+}
+
+button{
+  height: 160rpx;
+  background-color: #118fff;
+  text-align: center;
+  font-size: 80rpx;
+  color: #fff;
 }

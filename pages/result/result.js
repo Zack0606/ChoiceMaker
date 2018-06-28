@@ -12,7 +12,7 @@ Page({
     result: [{
       id: 0,
       title: "来抓阄",
-      img: "../../static/images/more/TITLE.png"
+      img: "../../static/images/more/img01.png"
     }, {
       id: 1,
       title: "做选择",
@@ -27,7 +27,7 @@ Page({
     }, {
       id: 3,
       title: "排顺序",
-      img: "../../static/images/more/groupNum.png"
+      img: "../../static/images/more/rankNum.png"
     }, {
       id: 4,
       title: "分任务",

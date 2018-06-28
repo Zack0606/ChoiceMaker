@@ -9,11 +9,13 @@ page{
   background-color: #118fff;
 }
 .add{
-  margin:10rpx;
-  margin-top: 20rpx;
+
   color: #fff;
   background-color: #118fff;
   font-weight: 700rpx;
+}
+add::after{
+  border-color: #fff;
 }
 
 

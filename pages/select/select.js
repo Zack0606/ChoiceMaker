@@ -26,8 +26,9 @@ Page({
     })
   },
   selectRole: function(e) {
+    var that =this
     var a = e.currentTarget.id
-    var b = this.data.columnId
+    var b = that.data.columnId
     if (a == 2)
       wx.navigateTo({
         url: '../index/index',
@@ -46,8 +47,9 @@ Page({
     } else if (a == 1) {
       if (b == 2||b==0)
       {
+        console.log("b="+b)
       wx.navigateTo({
-        url: '../addGroup/addGroup'
+        url: '../addGroup/addGroup?addId='+b
       })
       }
     }

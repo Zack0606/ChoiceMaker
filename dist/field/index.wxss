@@ -73,6 +73,7 @@
 
 .zan-field__placeholder {
   font-size: 14px;
+  color:#fff;
 }
 
 .zan-field__input--right {

@@ -1,5 +1,4 @@
 {
-  "navigationBarTitleText": "面对面分组",
   "usingComponents": {
     "zan-button": "../../dist/btn/index",
     "zan-button-group": "../../dist/btn-group/index",

@@ -29,19 +29,11 @@ Page({
   },
   makeChoice:function (){
     var that=this
-    let runtimes = 0
-    
-    for (var i=0;i<10;i++){   
-     
     var randomnum = Math.round(Math.random() * this.data.config.num.stepper);
-    setTimeout(function(){
       that.setData({
         random:randomnum
       })
-      
-      },1000)
-      console.log(this.data.random)
-    }
+
   },
   /**
    * 生命周期函数--监听页面加载

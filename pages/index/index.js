@@ -24,7 +24,7 @@ Page({
       img: ""
     }, {
       id: 4,
-      title: "分任务",
+      title: "拼手速",
       img: ""
     }, {
       id: 5,

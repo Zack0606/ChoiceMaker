@@ -1,14 +1,16 @@
-<image src="../../static/images/more/title.png" style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+<image src="../../static/images/more/title.png" style="width:100%;height:200rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
 
-  <zan-row>
-    <zan-col>
+<zan-row>
+  <zan-col>
 
+  </zan-col>
+</zan-row>
+<zan-row>
+  <view wx:for="{{columns}}">
+    <zan-col col="12">
+      <button class="column-btn" bindtap="getStart" id="{{item.id}}">{{item.title}}</button>
     </zan-col>
-  </zan-row>
-  <zan-row>
-    <view wx:for="{{columns}}">
-      <zan-col col="12">
-        <button class="column-btn" bindtap="getStart" id="{{item.id}}">{{item.title}}</button>
-      </zan-col>
-    </view>
-  </zan-row>
+  </view>
+
+  <image src="../../static/images/more/slogan.png" style="width:100%;height:100rpx;  border-radius: 0 0 20rpx 20rpx;margin-top:30rpx;"></image>
+</zan-row>

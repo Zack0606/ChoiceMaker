@@ -11,11 +11,16 @@ Page({
       },
       max: '',
       num: ''
-    }
+    },
+    addId: 0,
+    add:["抓阄","选择","分组","排序"]
   },
-
+  onLoad: function (options) {
+    this.setData({
+      addId: options.addId
+    })
+  },
   formSubmit: function(e) {
-
     var that = this;
     var input = e.detail.value;
     console.log(input);
@@ -61,7 +66,7 @@ Page({
     });
 
     wx.navigateTo({
-      url: '../result/result?randomNum='+input.randomNum
+      url: '../result/result?randomNum=' + input.randomNum
     })
 
 

@@ -1,4 +1,4 @@
-<image src="../../static/images/more/input.png" style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+<image src="../../static/images/more/input.png" style="width:100%;height:200rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
 <form bindsubmit="formSubmit" bindreset="formReset">
 <zan-panel>
   <zan-col col="24" col-class="roomInfo-zan-col">
@@ -7,5 +7,6 @@
   </zan-col>
 </zan-panel>
 
-<button style="font-size:80rpx;height:200rpx;" form-type="submit">参与分组</button>
+<button style="font-size:80rpx;height:200rpx;" form-type="submit">我要{{add[addId]}}</button>
+<image src="../../static/images/more/attend.png" style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;margin-top:100rpx;"></image>
 </form>

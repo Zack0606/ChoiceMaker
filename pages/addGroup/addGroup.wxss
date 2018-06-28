@@ -1,10 +1,15 @@
 page{
   background-color: #118fff;
 }
+.zan-field__input::after{
+    font-size:60rpx;
+}
 button::after{
-  font-size: 80rpx;
+
+  font-size: 60rpx;
   font-weight:800rpx;
   height: 100rpx;
+  border-color: #118fff;
 }
 .roomInfo-zan-col {
   line-height: 200rpx;
