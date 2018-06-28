@@ -17,12 +17,16 @@ Page({
         stepper: 20,
         min: 1,
         max: 100
-      }
+      },
+
     },
     result: [""],
     lots:[],
     sum: 1,
-    userInfo: null
+    userInfo: null,
+    lots: [{
+      id: 1
+    }]
   },
   handleZanStepperChange({
     detail: stepper,
@@ -38,8 +42,12 @@ Page({
   },
   addResult: function(e) {
     console.log(e)
+    console.log(this.data.lots)
+    this.data.lots.push({
+      id: this.data.lots.length + 1
+    })
     this.setData({
-      sum: this.data.sum + 1,
+      lots: this.data.lots
     })
 
   },
@@ -54,16 +62,28 @@ Page({
 
     for (var i=0;i<this.data.sum;i++)
     {
-      
+
       activityInfo.lots[i] =e.detail.value[i+2]
     }
     var inputs = e.detail.value;
-    console.log(e.detail.value)
-    console.log(activityInfo.lots);
-    
-    //Common.newActivity(activityInfo)
+    var activityInfo = {
+      activityNumber: parseInt(e.detail.value.randomNum),
+      activityType: 0,
+      activitySize: e.detail.value.peopleNum,
+      groupNumber: 1,
+      groupSize: e.detail.value.peopleNum,
+      title: '',
+      lots: [],
+      flag: 'new',
+      randomArray: [],
+      addition: ''
+    };
+    var tmp=new Array;
+    for(var i=0;i<this.data.lots.length;i++){
+      tmp[i] = e.detail.value[i]
+    }
+    activityInfo.lots=tmp;
+    console.log(activityInfo)
+    Common.newActivity(activityInfo)
   }
-
-
-
 })

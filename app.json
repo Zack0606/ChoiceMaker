@@ -9,7 +9,6 @@
     "pages/addGroup/addGroup",
     "pages/select/select",
     "pages/makeChoice/index",
-    "pages/newLots/index",
     "pages/groupResult/index",
     "pages/compareSpeed/compareSpeed",
     "pages/mine/mine"

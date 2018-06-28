@@ -16,8 +16,8 @@
           </zan-field>
           <zan-stepper stepper="{{ config.peopleNum.stepper }}" min="{{ config.peopleNum.min }}" max="{{ config.peopleNum.max }}" hidden="true" data-component-id="config.peopleNum" bind:change="handleZanStepperChange"></zan-stepper>
         </view>
-        <view wx:for="{{sum}}" wx:key="index">
-          <zan-field name="result{{index+1}}" title="{{index+1}}号阄" placeholder="" value="">
+        <view wx:for="{{lots}}" wx:key="index">
+          <zan-field name="{{index}}" title="{{index+1}}号阄" placeholder="" value="">
           </zan-field>
         </view>
         <zan-col col='8'>

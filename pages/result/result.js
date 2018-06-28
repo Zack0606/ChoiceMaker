@@ -1,16 +1,18 @@
 // pages/result/result.js
+var Bmob = require("../../utils/bmob.js");
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    resultId:0,
-    randomNum:"",
-    contentNum:0,
-    groupNumber:0,
-    size:0,
-    memberList:[],
+    activityType: 0,
+    resultId: 0,
+    randomNum: "",
+    contentNum: 0,
+    groupNumber: 0,
+    activityNumber:0,
+    size: 0,
+    memberList: [],
     result: [{
       id: 0,
       title: "来抓阄",
@@ -24,8 +26,7 @@ Page({
       title: "来分组",
       img1: "../../static/images/more/groupNum.png",
       img2: "../../static/images/more/list.png",
-      text1:"您的组号是",
-      text2:"您的小组名单"
+      text1: "您的组号是"
     }, {
       id: 3,
       title: "排顺序",
@@ -40,80 +41,55 @@ Page({
       img: ""
     }]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this
-    wx.getStorage({
-      key: 'my_activities',
-      success: function(res) {
-        that.setData({
-          resultId:res.data[0].type,
-          groupNumber: res.data[0].groupNumber,
-          size: res.data[0].size,
-          myId: res.data[0].my_id
-        })
-        if(that.data.resultId==2)
-        {
-          var temp=parseInt( (that.data.myId - 1) / (that.data.size / that.data.groupNumber)) + 1
-          that.setData({
-            contentNum :temp
-          })
-        }
-        console.log("r="+that.data.contentNum)
-      },
-   
+    console.log(options)
+    this.setData({
+      activityType: options.activityType,
+      activityNumber: options.activityNumber
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  getNow:function(){
+    var that=this;
+    var user_id = wx.getStorageSync('user_id');
+    var Main = Bmob.Object.extend('main');
+    var user = new Bmob.User();
+    user.id = user_id;
+    var query = new Bmob.Query(Main);
+    query.equalTo('activityNumber', parseInt(this.data.activityNumber));
+    // query.equalTo('userId',user);
+    query.find({
+      success: function (result) {
+        console.log("result");
+        console.log(result);
+        var Activity = Bmob.Object.extend('activities');
+        var query2 = new Bmob.Query(Activity);
+        query2.get(result[0].attributes.activityId.id, {
+          success: function (res) {
+            console.log("res")
+            console.log(res)
+            if (res.attributes.activityType == 0) {
+              console.log("抓阄结果");
+              that.setData({
+                contentNum: result[0].attributes.mainId
+              })
+            } else if (res.attributes.activityType == 2) {
+              console.log("分组结果");
+              var temp = parseInt((result[0].attributes.mainId - 1) / res.attributes.groupSize) + 1
+              that.setData({
+                contentNum: temp
+              })
+            } else if (res.attributes.activityType == 3) {
+              console.log("排序结果");
+            } else if (res.attributes.activityType == 4) {
+              console.log("拼手速结果");
+            }
+          }
+        })
+      }
+    });
   }
 })
