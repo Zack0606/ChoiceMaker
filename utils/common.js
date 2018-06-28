@@ -96,41 +96,41 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
             console.log("创建成功")
             console.log(result)
             //直接加入
-            // var user = new Bmob.User()
-            // console.log(userInfo);
-            // user.id = userInfo.userId;
-            // var Main = Bmob.Object.extend("main");
-            // var main = new Main();
-            // main.set('activityNumber', activityInfo.activityNumber);
-            // main.set('activityId', result);
-            // main.set('userId', user);
-            // console.log("当前Id："+userInfo.userId)
-            // main.set('mainId', myId);
-            // main.save(null, {
-            //   success: function(res) {
-            //     console.log("加入成功, objectId:" + res.id);
-            //     console.log(res)
+            var user = new Bmob.User()
+            console.log(userInfo);
+            user.id = userInfo.userId;
+            var Main = Bmob.Object.extend("main");
+            var main = new Main();
+            main.set('activityNumber', activityInfo.activityNumber);
+            main.set('activityId', result);
+            main.set('userId', user);
+            console.log("当前Id："+userInfo.userId)
+            main.set('mainId', myId);
+            main.save(null, {
+              success: function(res) {
+                console.log("加入成功, objectId:" + res.id);
+                console.log(res)
                 // 本地数据同步
-              //   var my_activity = {
-              //     title: activityInfo.title,
-              //     type: activityInfo.activityType,
-              //     groupNumber: activityInfo.groupNumber,
-              //     size: activityInfo.activitySize,
-              //     my_id: myId,
-              //     my_lot: activityInfo.lots[myId - 1],
-              //   };
-              //   var my_activities = wx.getStorageSync("my_activities");
-              //   if (!my_activities) {
-              //     var my_activities = new Array()
-              //   }
-              //   my_activities.unshift(my_activity)
-              //   wx.setStorageSync("my_activities", my_activities)
-              // },
-              // error: function(result, error) {
-              //   console.log("加入失败: " + error.code + " " + error.message);
-              //   console.log(result)
-              // }
-            // });
+                var my_activity = {
+                  title: activityInfo.title,
+                  type: activityInfo.activityType,
+                  groupNumber: activityInfo.groupNumber,
+                  size: activityInfo.activitySize,
+                  my_id: myId,
+                  my_lot: activityInfo.lots[myId - 1],
+                };
+                var my_activities = wx.getStorageSync("my_activities");
+                if (!my_activities) {
+                  var my_activities = new Array()
+                }
+                my_activities.unshift(my_activity)
+                wx.setStorageSync("my_activities", my_activities)
+              },
+              error: function(result, error) {
+                console.log("加入失败: " + error.code + " " + error.message);
+                console.log(result)
+              }
+            });
           },
           error: function(result, error) {
             console.log("创建失败")

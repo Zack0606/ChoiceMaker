@@ -39,7 +39,7 @@ Page({
     })
   },
   onLoad: function() {
-    //Common.getResult();
+    Common.getResult();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
