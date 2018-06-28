@@ -44,25 +44,19 @@ Page({
           url: '../drawLots/index'
         })
       }
-      else if (b == 4) {
+      else if (b == 4||b==3) {
         wx.navigateTo({
-          url: '../compareSpeed/compareSpeed'
+          url: '../compareSpeed/compareSpeed?b='+b
         })
       }
     } else if (a == 1) {
-      if (b == 2||b==0)
+      if (b == 2||b==0||b==3||b==4)
       {
         console.log("b="+b)
       wx.navigateTo({
         url: '../addGroup/addGroup?addId='+b
       })
-      }
-      else if (b == 4) {
-        wx.navigateTo({
-          url: '../addGroup/addGroup?addId='+b
-        })
-      } 
-    }
+      }}
     
   }
 

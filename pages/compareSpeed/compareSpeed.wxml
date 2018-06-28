@@ -37,3 +37,12 @@
 
   <button form-type="submit">发起</button>
 </form>
+
+<view wx:if="{{columnId==3}}">
+<image src="../../static/images/more/order.png" style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+
+</view>
+<view wx:elif="{{columnId==4}}">
+<image src="../../static/images/more/compareSpeed.png" style="width:100%;height:250rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+
+</view>

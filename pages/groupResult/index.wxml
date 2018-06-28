@@ -2,9 +2,9 @@
 
 <button bindtap='queryResult'>查询</button>
   <view wx:for="{{showList}}" wx:key="index" wx:for-item="item">
-    <zan-col col="12">
-<view >第{{index+1}}组</view>
-    <view wx:for="{{item}}" wx:key="idx" wx:for-item="itm" >
+    <zan-col class="show" col="12">
+<view style='font-size:60rpx;color:#fff;' >第{{index+1}}组</view>
+    <view style='font-size:40rpx;color:#fff;' wx:for="{{item}}" wx:key="idx" wx:for-item="itm" >
     {{itm}}</view>
     </zan-col>
 </view>

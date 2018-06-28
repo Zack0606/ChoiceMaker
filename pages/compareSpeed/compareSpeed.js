@@ -18,19 +18,17 @@ Page({
         max: 100
       }
     },
+    columnId:0,
     userInfo: null
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
     var that = this
-    app.getUserInfo(function (userInfo) {
-      that.setData({
-        userInfo: userInfo
-      });
-      console.log(userInfo)
-    });
+    that.setData({
+    columnId:options.b
+    })
   },
   // 计数器
   handleZanStepperChange({
@@ -50,7 +48,7 @@ Page({
     console.log(e)
     var activityInfo = {
       activityNumber: parseInt(e.detail.value.randomNum),
-      activityType: 4,
+      activityType: parseInt(this.data.columnId),
       activitySize: e.detail.value.peopleNum,
       title: e.detail.value.theme,
       lots: [],

@@ -24,6 +24,8 @@ App({
                 success: function(userData) {
                   wx.getUserInfo({
                     success: function(result) {
+                      console.log("loginwx");
+                      console.log(result)
                       var userInfo = result.userInfo
                       var nickName = userInfo.nickName
                       var avatarUrl = userInfo.avatarUrl
@@ -82,7 +84,8 @@ App({
             }
           },
           complete: function(e) {
-            console.log('获取用户登录态失败2！' + e)
+            console.log('获取用户登录态失败2！')
+            console.log(e)
           }
         });
       }
@@ -96,67 +99,67 @@ App({
         wx.login()
       }
     })
-    // // 登录
-    // wx.login({
-    //   success: res => {
-    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //     if (res.code) {
-    //       Bmob.User.requestOpenId(res.code, { //获取userData
-    //         success: function(userData) {
-    //           wx.getUserInfo({
-    //             success: function(result) {
-    //               var userInfo = result.userInfo
-    //               var nickName = userInfo.nickName
-    //               var user = new Bmob.User(); //开始注册用户
-    //               user.set("username", nickName);
-    //               user.set("userPic", userInfo.avatarUrl);
-    //               user.set("sex", userInfo.gender);
-    //               user.set("password", userData.openid);
-    //               user.set("userData", userData);
-    //               user.signUp(null, {
-    //                 success: function(res) {
-    //                   console.log(res)
-    //                   console.log("注册成功!");
-    //                 },
-    //                 error: function(userData, error) {
-    //                   console.log(userData)
-    //                   console.log(error)
-    //                 }
-    //               });
-    //             }
-    //           });
-    //         },
-    //         error: function(error) {
-    //           // Show the error message somewhere
-    //           console.log("Error: " + error.code + " " + error.message);
-    //         }
-    //       });
+    // 登录
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if (res.code) {
+          Bmob.User.requestOpenId(res.code, { //获取userData
+            success: function(userData) {
+              wx.getUserInfo({
+                success: function(result) {
+                  var userInfo = result.userInfo
+                  var nickName = userInfo.nickName
+                  var user = new Bmob.User(); //开始注册用户
+                  user.set("username", nickName);
+                  user.set("userPic", userInfo.avatarUrl);
+                  user.set("sex", userInfo.gender);
+                  user.set("password", userData.openid);
+                  user.set("userData", userData);
+                  user.signUp(null, {
+                    success: function(res) {
+                      console.log(res)
+                      console.log("注册成功!");
+                    },
+                    error: function(userData, error) {
+                      console.log(userData)
+                      console.log(error)
+                    }
+                  });
+                }
+              });
+            },
+            error: function(error) {
+              // Show the error message somewhere
+              console.log("Error: " + error.code + " " + error.message);
+            }
+          });
 
-    //     } else {
-    //       console.log('获取用户登录态失败！' + res.errMsg)
-    //     }
-    //   }
-    // })
-    // // 获取用户信息
-    // wx.getSetting({
-    //   success: res => {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-    //       wx.getUserInfo({
-    //         success: res => {
-    //           // 可以将 res 发送给后台解码出 unionId
-    //           this.globalData.userInfo = res.userInfo
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    })
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              // 可以将 res 发送给后台解码出 unionId
+              this.globalData.userInfo = res.userInfo
 
-    //           // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //           // 所以此处加入 callback 以防止这种情况
-    //           if (this.userInfoReadyCallback) {
-    //             this.userInfoReadyCallback(res)
-    //           }
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }
+      }
+    })
   },
   getUserInfo: function(cb) {
     var that = this;

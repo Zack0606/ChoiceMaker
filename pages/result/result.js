@@ -16,7 +16,7 @@ Page({
     result: [{
       id: 0,
       title: "来抓阄",
-      img1: "../../static/images/more/img01.png"
+      img1: "../../static/images/more/lotNum.png"
     }, {
       id: 1,
       title: "做选择",
@@ -30,11 +30,11 @@ Page({
     }, {
       id: 3,
       title: "排顺序",
-      img: "../../static/images/more/rankNum.png"
+      img1: "../../static/images/more/rankNum.png"
     }, {
       id: 4,
       title: "分任务",
-      img: ""
+      img1: "../../static/images/more/speedNum.png",
     }, {
       id: 5,
       title: "来签到",
