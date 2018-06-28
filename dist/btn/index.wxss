@@ -45,8 +45,10 @@
   position: absolute;
   right:0rpx;
   margin:40rpx;
-  font-size: 30rpx;
+  font-size: 50rpx;
   text-align: center;
+  border-color:#fff;
+
 }
 
 .zan-btn--primary::after {

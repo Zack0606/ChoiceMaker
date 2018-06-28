@@ -28,7 +28,7 @@ Page({
       img: ""
     }, {
       id: 5,
-      title: "来签到",
+      title: "我的",
       img: ""
     }]
   },
@@ -81,7 +81,13 @@ Page({
       wx.navigateTo({
         url: '../makeChoice/index',
       })
-    } else {
+    }
+    else if (e.currentTarget.id == 5){
+      wx.navigateTo({
+        url: '../mine/mine',
+      })
+    }
+     else {
       wx.navigateTo({
         url: '../select/select?columnId=' + e.currentTarget.id,
       })

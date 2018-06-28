@@ -11,7 +11,8 @@
     "pages/makeChoice/index",
     "pages/newLots/index",
     "pages/groupResult/index",
-    "pages/compareSpeed/compareSpeed"
+    "pages/compareSpeed/compareSpeed",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",

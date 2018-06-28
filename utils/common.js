@@ -71,10 +71,10 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
       } else {
         // 数字不存在，添加数据
         // var Activity = Bmob.Object.extend('activities');
-        if(activityInfo.activityNumber==4){
+        if(activityInfo.activityType==4){
           var arr = [];
-          for (var i = 1; i <= size; i++) {
-            arr[i - 1] = i
+          for (var i = 0; i <=activityInfo.activitySize; i++) {
+            arr[i] = i
           }
           activityInfo.randomArray = arr
         }else{

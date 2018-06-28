@@ -13,7 +13,7 @@
         name="theme" 
         title="{{ config.name.title }}" 
         placeholder="{{ config.name.placeholder }}" 
-        value='例如“数据结构分组”'>
+        value='例如“抢红包”'>
         </zan-field>
         <view class="field-container">
           <zan-field 
@@ -29,22 +29,6 @@
           max="{{ config.peopleNum.max }}" 
           hidden="true" 
           data-component-id="config.peopleNum" 
-          bind:change="handleZanStepperChange"></zan-stepper>
-        </view>
-        <view class="field-container">
-          <zan-field 
-          name="groupNum" 
-          title="{{ config.groupNum.title }}" 
-          input-type="number" 
-          disabled="true" 
-          value="{{ config.groupNum.stepper }}">
-          </zan-field>
-          <zan-stepper 
-          stepper="{{ config.groupNum.stepper }}" 
-          min="{{ config.groupNum.min }}" 
-          max="{{ config.groupNum.max }}" 
-          hidden="true" 
-          data-component-id="config.groupNum" 
           bind:change="handleZanStepperChange"></zan-stepper>
         </view>
       </zan-cell-group>

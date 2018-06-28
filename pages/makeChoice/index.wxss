@@ -22,7 +22,7 @@ button::after{
   font-size: 60rpx;
   font-weight:800rpx;
   height: 100rpx;
-  border-color: #118fff;
+  border-color: #fff;
 }
 .roomInfo-zan-col {
   line-height: 200rpx;
@@ -83,4 +83,5 @@ button{
   text-align: center;
   font-size: 80rpx;
   color: #fff;
+  border-color: #fff; 
 }

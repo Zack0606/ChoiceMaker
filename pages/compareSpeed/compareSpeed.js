@@ -10,26 +10,12 @@ Page({
   data: {
     groupId: '',
     config: {
-      name: {
-        title: '主题'
-      },
-      theme: {
-      },
+      theme:"",
       peopleNum: {
         title: '参与人数',
         stepper: 20,
         min: 1,
         max: 100
-      },
-      groupNum: {
-        title: '组数',
-        stepper: 4,
-        min: 1,
-        max: 20
-      },
-      remarks: {
-        title: '备注',
-        placeholder: '如有无特殊要求偏好'
       }
     },
     userInfo: null
@@ -64,20 +50,14 @@ Page({
     console.log(e)
     var activityInfo = {
       activityNumber: parseInt(e.detail.value.randomNum),
-      activityType: 2,
+      activityType: 4,
       activitySize: e.detail.value.peopleNum,
-      groupNumber: e.detail.value.groupNum,
-      groupSize: Math.ceil(e.detail.value.peopleNum / e.detail.value.groupNum),
       title: e.detail.value.theme,
       lots: [],
       flag: 'new',
       randomArray: [],
       addition: ''
     }
-    console.log(activityInfo);
     Common.newActivity(activityInfo);
-    wx.navigateTo({
-      url: '../groupResult/index?groupResult=' + e.detail.value.randomNum
-    })
   }
 })

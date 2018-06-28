@@ -1,0 +1,24 @@
+<image src="../../static/images/more/mine.png" style="width:100%;height:200rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+
+<view class="noAct" wx:if="{{myAct==null}}">
+  暂无活动
+</view>
+<view wx:else>
+  <image src="../../static/images/more/allResult.png" style="width:100%;height:100rpx;  border-radius: 0 0 20rpx 20rpx;"></image>
+  <view wx:for="{{myAct}}" wx:key="idx" wx:for-item="itm">
+    <zan-row>
+      <zan-col class="show" col="8">
+        <view> {{itm.activityNumber}} </view>
+      </zan-col>
+      <zan-col style="  text-align: right; font-size: 50rpx;color:#fff;" col="7">
+        <view wx:if="{{itm.type==0}}">来抓阄</view>
+        <view wx:elif="{{itm.type==2}}">来分组
+          <!-- <view>{{itm.my_id/(itm.size/item.groupNumber)}}</view>  -->
+        </view>
+        <view wx:elif="{{itm.type==3}}">排顺序</view>
+        <view wx:elif="{{itm.type==4}}">拼手速</view>
+      </zan-col>
+
+    </zan-row>
+  </view>
+</view>

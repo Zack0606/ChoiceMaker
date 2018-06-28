@@ -57,7 +57,13 @@ Page({
         url: '../addGroup/addGroup?addId='+b
       })
       }
-    } 
+      else if (b == 4) {
+        wx.navigateTo({
+          url: '../addGroup/addGroup?addId='+b
+        })
+      } 
+    }
+    
   }
 
 
