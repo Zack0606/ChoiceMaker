@@ -29,7 +29,7 @@ Page({
   },
   makeChoice:function (){
     var that=this
-    var randomnum = Math.round(Math.random() * this.data.config.num.stepper);
+    var randomnum = Math.ceil(Math.random() * this.data.config.num.stepper);
       that.setData({
         random:randomnum
       })
