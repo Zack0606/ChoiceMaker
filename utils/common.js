@@ -70,7 +70,15 @@ function newActivity(activityInfo = activityinfo, userInfo=userinfo, success = n
       } else {
         // 数字不存在，添加数据
         // var Activity = Bmob.Object.extend('activities');
-        activityInfo.randomArray = getRandomArray(activityInfo.activitySize)
+        if(activityInfo.activityNumber==4){
+          var arr = [];
+          for (var i = 1; i <= size; i++) {
+            arr[i - 1] = i
+          }
+          activityInfo.randomArray = arr
+        }else{
+          activityInfo.randomArray = getRandomArray(activityInfo.activitySize)
+        }
         var myId = activityInfo.randomArray.shift()
         var activity = new Activity();
         activity.set("activityNumber", activityInfo.activityNumber);
@@ -182,6 +190,7 @@ function joinActivity(activityNumber = activityinfo.activityNumber, userInfo = u
                   // 本地数据同步
                   console.log("本地数据同步")
                   var my_activity = {
+                    activityNumber: results[0].attributes.activityNumber,
                     title: results[0].attributes.title,
                     type: results[0].attributes.activityType,
                     groupNumber: results[0].attributes.groupNumber,
@@ -230,7 +239,7 @@ function joinActivity(activityNumber = activityinfo.activityNumber, userInfo = u
   })
 };
 
-function getResult(activityNumber=1234, userInfo = userinfo, success, error) {
+function getResult(activityNumber=1245, userInfo = userinfo, success, error) {
   console.log("function:getResult");
   // 待开发
   var Main=Bmob.Object.extend('main');
@@ -261,22 +270,56 @@ function getResult(activityNumber=1234, userInfo = userinfo, success, error) {
         }
       })
       var userQuery=new Bmob.Query(Bmob.User);
-      for(var i=0;i<res.length;i++){
-        var j=i;
-        userQuery.get(res[i].attributes.userId.id,{
-          success:function(tmpres){
-            var Res = wx.getStorageSync('Result');
-            console.log(res[j])
-            Res.details[j] = {
-              id: res[j].attributes.mainId,
-              user: tmpres.attributes
+      userQuery.find({
+        success:function(result){
+          var Res = wx.getStorageSync('Result');
+          
+          for(var i = 0 ;i<res.length;i++){
+            var flag = 0;
+            for(var j=0;j<result.length;j++){
+              if(result[j].id==res[i].attributes.userId.id){
+                Res.details[i] = {
+                  id: res[i].attributes.mainId,
+                  user: result[j]
+                }
+                console.log(Res)
+                wx.setStorageSync('Result', Res)
+                flag = 1;
+              }else{
+                
+              }
             }
-            console.log("获取用户数据");
-            console.log(tmpres);
-            wx.setStorageSync('Result', Res);
+            if (flag == 0) {
+              console.log("can not find user" + res[i].attributes.userId.id)
+            }
           }
-        })
-      }
+          
+        }
+      })
+      // var j;
+      // for(var i=0;i<res.length;i++){
+      //   j=i;
+      //   console.log("In :"+j)
+      //   var Res = wx.getStorageSync('Result');
+      //   Res.details[j]={
+      //     id: 'res[j].attributes.mainId',
+      //     user:''
+      //   }
+      //   wx.setStorageSync('Result', Res);
+      //   userQuery.get(res[j].attributes.userId.id,{
+      //     success:function(tmpres){
+      //       var Res = wx.getStorageSync('Result');
+      //       console.log("Res")
+      //       console.log(Res)
+      //       Res.details[j] = {
+      //         id: res[j].attributes.mainId,
+      //         user: null
+      //       }
+      //       console.log("获取用户数据");
+      //       wx.setStorageSync('Result', Res);
+      //     }
+      //   })
+      // }
       console.log("返回查询结果")
     }
   })
