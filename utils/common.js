@@ -242,15 +242,42 @@ function getResult(activityNumber=1234, userInfo = userinfo, success, error) {
   getAll.equalTo("activityNumber", activityNumber);
   getAll.find({
     success:function(res){
+      console.log("分组情况获取成功")
       console.log(res)
-      Result.activityInfo=res[0].attributes.activityId
+      var Result={
+        activityInfo:null,
+        details:[]
+      }
+      wx.setStorageSync('Result', Result)
+      var Activity=Bmob.Object.extend('activities');
+      var activity=new Bmob.Query(Activity);
+      activity.get(res[0].attributes.activityId.id,{
+        success:function(subres){
+          console.log("活动详情获取成功")
+          console.log(subres)
+          var Res=wx.getStorageSync('Result')
+          Res.activityInfo=subres.attributes
+          wx.setStorageSync('Result', Res)
+        }
+      })
+      var userQuery=new Bmob.Query(Bmob.User);
       for(var i=0;i<res.length;i++){
-        Result.details[i]=new Object();
-        // Result.details[i].name=res[i].nickName;
-        Result.details[i].id = res[i].attributes.mainId;
-      };
-      console.log(Result)
-      
+        var j=i;
+        userQuery.get(res[i].attributes.userId.id,{
+          success:function(tmpres){
+            var Res = wx.getStorageSync('Result');
+            console.log(res[j])
+            Res.details[j] = {
+              id: res[j].attributes.mainId,
+              user: tmpres.attributes
+            }
+            console.log("获取用户数据");
+            console.log(tmpres);
+            wx.setStorageSync('Result', Res);
+          }
+        })
+      }
+      console.log("返回查询结果")
     }
   })
 }
