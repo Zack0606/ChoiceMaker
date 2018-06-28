@@ -39,8 +39,7 @@ Page({
     })
   },
   onLoad: function() {
-    // Common.newActivity();
-    Common.joinActivity();
+    Common.getResult();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
